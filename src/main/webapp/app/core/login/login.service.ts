@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AccountService } from '../auth/account.service';
+import { AuthServerProvider } from '../auth/auth-jwt.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
@@ -24,6 +25,10 @@ export class LoginService {
                 }
             );
         });
+    }
+
+    loginWithToken(jwt, rememberMe) {
+        return this.authServerProvider.loginWithToken(jwt, rememberMe);
     }
 
     logout() {

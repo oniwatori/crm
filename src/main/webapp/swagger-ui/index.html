@@ -82,6 +82,9 @@
                 });
 
                 function addApiKeyAuthorization() {
+                    var authToken = JSON.parse(localStorage.getItem("ngx-authenticationtoken") || sessionStorage.getItem("ngx-authenticationtoken"));
+                    var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", "Bearer " + authToken, "header");
+                    window.swaggerUi.api.clientAuthorizations.add("bearer", apiKeyAuth);
                 }
 
 
