@@ -3,13 +3,14 @@ import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgbDateMomentAdapter } from './util/datepicker-adapter';
 import { CrmSharedLibsModule, CrmSharedCommonModule, NgxLoginModalComponent, HasAnyAuthorityDirective } from './';
+import { CrmMaterialModule } from './material.module';
 
 @NgModule({
-    imports: [CrmSharedLibsModule, CrmSharedCommonModule],
+    imports: [CrmSharedLibsModule, CrmSharedCommonModule, CrmMaterialModule],
     declarations: [NgxLoginModalComponent, HasAnyAuthorityDirective],
     providers: [{ provide: NgbDateAdapter, useClass: NgbDateMomentAdapter }],
     entryComponents: [NgxLoginModalComponent],
-    exports: [CrmSharedCommonModule, NgxLoginModalComponent, HasAnyAuthorityDirective],
+    exports: [CrmSharedCommonModule, NgxLoginModalComponent, HasAnyAuthorityDirective, CrmMaterialModule],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CrmSharedModule {
